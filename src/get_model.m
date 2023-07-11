@@ -35,7 +35,7 @@ line_width = 1.5;
 % taxis_temp: does not start at 0s
 y_temp = lowpass(ts_trunc, ulim, sampling_rate);
 y_temp = y_temp + manual_offset; % --> This is the signal to model
-% disp(length(y_temp)/sampling_rate/60)
+% disp(length(y_temp)/sampling_rate/60) % --> Signal duration
 %% Untruncated and Truncated Signal
 if do_plot
     figure();
@@ -212,6 +212,10 @@ end
 pt_tilda = search_min_loc_unit_pulse(mean_pulse, sep_samples);
 [pt, T] = align_pulse(pt_tilda); % Here, T is in samples. T/sampling_rate is real 'period'
 gamma = trapz(pt)/sampling_rate;
+%% Sanity Check: alpha*beta = mean(y) 
+% % beta = beta_plus_gamma - gamma;
+% disp(alpha*beta_plus_gamma)
+% disp(mean(y))
 %% Plot: (All*) Pulses, Mean Pulse, Accepted Pulse \tilde{p}(t)
 if do_plot
     figure();

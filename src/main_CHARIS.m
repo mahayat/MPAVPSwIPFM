@@ -15,13 +15,13 @@ min_dist = 0.45; % in sec
 ulim = 15;
 llim = 0.5;
 mov_avg_len = 30; % in sec
-do_plot = false;
+do_plot = true;
 is_man_onset_detec = false;
 %%
 all_rho = [];
 font_size = 14;
 do_plot = false;
-for sub_num = 1:length(truncation_starts_in_sec)
+for sub_num = 10%:length(truncation_starts_in_sec)
     
     file_name = strcat('charis', num2str(sub_num),'m.mat');
     file_location = strcat(root_location, file_name);
